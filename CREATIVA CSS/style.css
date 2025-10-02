@@ -1,0 +1,109 @@
+body {
+    font-family: 'Arial', sans-serif;
+    /* display: flex; */
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+    color: #fff;
+    overflow: hidden;
+    animation: cambio-fondo-fiesta 5s linear infinite alternate;
+}
+
+@keyframes cambio-fondo-fiesta {
+    0% { background-color: #ff007f; }
+    25% { background-color: #00ff7f; }
+    50% { background-color: #007fff; }
+    75% { background-color: #ffcc00; }
+    100% { background-color: #ff007f; }
+}
+
+.fiesta-brillo {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    font-size: 3.5em;
+    font-weight: bold;
+
+    animation: 
+        brillo-multicolor 2s infinite alternate, 
+        latido-pulso 0.5s infinite; 
+    z-index: 10;
+}
+
+@keyframes brillo-multicolor {
+    0% {
+        color: #fff;
+        text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f;
+    }
+    33% {
+        color: #fff;
+        text-shadow: 0 0 10px #00ff7f, 0 0 20px #00ff7f; 
+    }
+    66% {
+        color: #fff;
+        text-shadow: 0 0 10px #007fff, 0 0 20px #007fff;
+    }
+    100% {
+        color: #fff;
+        text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f; 
+    }
+}
+
+@keyframes latido-pulso {
+    0%, 100% { transform: scale(1) translateX(-50%); }
+    50% { transform: scale(1.02) translateX(-50%); }
+}
+
+.imagen-contenedor {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+ 
+    animation: 
+        movimiento-fiesta 8s linear infinite, 
+        cambio-color-borde 3s linear infinite alternate; 
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.dinamica {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+ 
+    animation: 
+        rotacion-continua 2s linear infinite,
+        rebote 0.5s infinite alternate; 
+}
+
+@keyframes movimiento-fiesta {
+    0% { top: 10%; left: 10%; }
+    25% { top: 80%; left: 90%; }
+    50% { top: 30%; left: 5%; }
+    75% { top: 60%; left: 70%; }
+    100% { top: 10%; left: 10%; }
+}
+
+@keyframes rotacion-continua {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes rebote {
+    from { transform: rotate(-5deg) scale(1); }
+    to { transform: rotate(5deg) scale(1.05); }
+}
+
+@keyframes cambio-color-borde {
+    0% { border: 5px solid #ff007f; box-shadow: 0 0 15px #ff007f; }
+    50% { border: 5px solid #00ff7f; box-shadow: 0 0 15px #00ff7f; }
+    100% { border: 5px solid #007fff; box-shadow: 0 0 15px #007fff; }
+}
